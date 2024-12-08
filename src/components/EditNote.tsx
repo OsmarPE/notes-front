@@ -66,6 +66,7 @@ export function EditNote({ setrefresh, closeModal, open, id }: Props) {
       form.reset()
     }
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id])
   
 

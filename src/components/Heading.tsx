@@ -1,4 +1,4 @@
-import { Link, LogOut, User2Icon } from 'lucide-react'
+import { LogOut, User2Icon } from 'lucide-react'
 import {
     DropdownMenu,
     DropdownMenuContent,

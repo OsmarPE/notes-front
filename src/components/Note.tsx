@@ -8,7 +8,7 @@ import {
   } from "@/components/ui/card"
 import { Button } from "./ui/button"
 import { NoteType } from "@/types"
-import { PencilIcon, Trash, X } from "lucide-react"
+import { PencilIcon, Trash } from "lucide-react"
 import { API } from "@/services/api"
 import { toast } from "sonner"
 import { format } from "date-fns"
