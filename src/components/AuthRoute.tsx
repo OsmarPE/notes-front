@@ -1,7 +1,7 @@
-import { Navigate } from "react-router-dom"
 
-export default function AuthRoute({ children }: { children: React.ReactNode }) {
+import { Navigate, Outlet } from "react-router-dom"
 
+export default function AuthRoute() {
 
     const token = localStorage.getItem('token')
 
@@ -9,7 +9,10 @@ export default function AuthRoute({ children }: { children: React.ReactNode }) {
 
     return (
     <>
-        {children}
+      
+      <div className="max-w-5xl mx-auto mt-9 border border-gray-200 p-6 rounded-md bg-white shadow-inner">
+        <Outlet/>
+      </div>
     </>
   )
 }

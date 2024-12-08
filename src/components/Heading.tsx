@@ -1,15 +1,18 @@
+import { Link, LogOut, User2Icon } from 'lucide-react'
 import {
-    Menubar,
-    MenubarContent,
-    MenubarItem,
-    MenubarMenu,
-    MenubarTrigger,
-} from "@/components/ui/menubar"
-import { LogOut } from 'lucide-react'
-
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+  } from "@/components/ui/dropdown-menu"
+  
 
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { useNavigate } from "react-router-dom"
+import { Button } from './ui/button'
+import { Link as RouterLink } from "react-router-dom"
 
 export default function Heading() {
 
@@ -17,7 +20,7 @@ export default function Heading() {
 
     const handleLogout = () => {
         localStorage.removeItem('token')
-        navigate('/auth/login')
+        navigate('/auth/login',{replace: true})
     }
 
     return (
@@ -29,19 +32,25 @@ export default function Heading() {
                 </p>
             </div>
             <div>
-
-                <Menubar>
-                    <MenubarMenu >
-                        <MenubarTrigger>
-                            <Avatar>
-                                <AvatarFallback>CN</AvatarFallback>
+                <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                        <Button variant={'outline'} className='rounded-full' size={'icon'}>
+                            <Avatar className='h-10 w-10 rounded-full'>
+                                <AvatarFallback className='h-full w-full' />
                             </Avatar>
-                        </MenubarTrigger>
-                        <MenubarContent align='end' >
-                            <MenubarItem onClick={handleLogout} className='justify-between'>Log out <LogOut width={18} /> </MenubarItem>
-                        </MenubarContent>
-                    </MenubarMenu>
-                </Menubar>
+                        </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align='end'>
+                        <DropdownMenuLabel> My Account</DropdownMenuLabel>
+                        <DropdownMenuSeparator />
+                        <DropdownMenuItem asChild> 
+                            <RouterLink to="/profile" >
+                                <User2Icon width={18} /> Profile 
+                            </RouterLink>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem onClick={handleLogout}> <LogOut width={18} /> Log out </DropdownMenuItem>
+                    </DropdownMenuContent>
+                </DropdownMenu>
 
             </div>
         </div>
